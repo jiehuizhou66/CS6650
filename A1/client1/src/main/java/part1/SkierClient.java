@@ -97,7 +97,7 @@ public class SkierClient {
     CountDownLatch latch2 = new CountDownLatch(numThread / 4 / 10);
     CountDownLatch latch3 = new CountDownLatch(numThread / 10);
 
-    BlockingQueue<SkierUpdateThread> allThreads = new ArrayBlockingQueue<>(numThread * 2);
+    BlockingQueue<SkierThread> allThreads = new ArrayBlockingQueue<>(numThread * 2);
 
     try {
       long start = System.currentTimeMillis();
@@ -147,7 +147,7 @@ public class SkierClient {
       long wallTime = end - start;
       int successCount = 0;
       int failureCount = 0;
-      for (SkierUpdateThread thread : allThreads) {
+      for (SkierThread thread : allThreads) {
         successCount += thread.getSuccess();
         failureCount += thread.getFailure();
       }
@@ -180,11 +180,11 @@ public class SkierClient {
       int dayID,
       CountDownLatch startLatch,
       CountDownLatch countingLatch,
-      BlockingQueue<SkierUpdateThread> allThreads) {
+      BlockingQueue<SkierThread> allThreads) {
     int skierRange = skierNum/threadNum;
     ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
     for (int i = 0; i < threadNum; i++) {
-      SkierUpdateThread thread = new SkierUpdateThread(
+      SkierThread thread = new SkierThread(
           URL,
           i * skierRange + 1,
           (i + 1) * skierRange,

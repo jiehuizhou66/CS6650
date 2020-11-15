@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 import org.apache.log4j.Logger;
 import part2.ResponseStat;
 
-public class SkierUpdateThread extends Thread {
+public class SkierThread extends Thread {
   private int startID;
   private int endID;
   // in miliseconds
@@ -32,7 +32,7 @@ public class SkierUpdateThread extends Thread {
   private int success;
   private int failure;
 
-  public SkierUpdateThread(
+  public SkierThread(
       String urlBase,
       int startID,
       int endID,

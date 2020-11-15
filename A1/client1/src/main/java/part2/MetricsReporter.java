@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
-import part1.SkierUpdateThread;
+import part1.SkierThread;
 
 public class MetricsReporter {
 
@@ -26,9 +26,9 @@ public class MetricsReporter {
   //  max response time
   private double maxResponseTime;
 
-  public MetricsReporter(BlockingQueue<SkierUpdateThread> threadList, long wallTime, int requestNum) {
+  public MetricsReporter(BlockingQueue<SkierThread> threadList, long wallTime, int requestNum) {
     allStats = new ArrayList<>(threadList.size() * threadList.peek().getStats().size());
-    for (SkierUpdateThread thread : threadList) {
+    for (SkierThread thread : threadList) {
       allStats.addAll(thread.getStats());
     }
     this.wallTime = wallTime;

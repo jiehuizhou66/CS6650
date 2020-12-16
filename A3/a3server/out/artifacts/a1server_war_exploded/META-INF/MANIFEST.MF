@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Chenxi
+Build-Jdk: 1.8.0_192
+Main-Class: src.main.java.Consumer
+Class-Path: gson-2.8.0.jar javax.servlet-api-4.0.1.jar mysql-connector-j
+ ava-8.0.18.jar protobuf-java-3.6.1.jar commons-dbcp2-2.7.0.jar commons-
+ pool2-2.7.0.jar commons-logging-1.2.jar amqp-client-5.7.1.jar slf4j-api
+ -1.7.26.jar
+
